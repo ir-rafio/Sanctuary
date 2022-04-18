@@ -1,0 +1,89 @@
+@font-face {
+    font-family: "Raleway";
+    src: url('../font/Raleway-SemiBold.ttf') format('ttf');
+}
+
+.root{
+    -fx-background-color: '#28252E';
+}
+
+#homeblock{
+    -fx-background-color: '#FFAA33';
+    -fx-border-color: 'BLACK';
+    -fx-border-width: 1px;
+    -fx-fill: '#FFAA33';
+    -fx-stroke: "BLACK";
+    -fx-strokeType: "INSIDE";
+}
+
+.button{
+    -fx-background-color: '#FAFAD2';
+    -fx-text-fill: 'black';
+    -fx-text-alignment: center;
+    -fx-font-family: 'Raleway', sans-serif;
+    -fx-font-size: 20px;
+}
+
+#back{
+    -fx-layoutX: 40;
+    -fx-layoutY: 40;
+    -fx-background-color: '#EC1C24';
+    -fx-pref-width: 85;
+    -fx-pref-height: 45;
+    -fx-text-alignment: "RIGHT";
+}
+
+#rentbutton{
+    -fx-background-color: 'yellow';
+    -fx-text-fill: 'red';
+}
+
+#formsquare{
+    -fx-background-color: '#6699CC';
+    -fx-border-color: 'BLACK';
+    -fx-border-width: 1px;
+    -fx-fill: '#6699CC';
+    -fx-stroke: "BLACK";
+    -fx-strokeType: "INSIDE";
+}
+
+#formsubmit{
+    -fx-font-size: 25px;
+}
+
+.label{
+    -fx-font-size: 20px;
+    -fx-font-family: 'Raleway', sans-serif;
+    -fx-text-fill: 'black';
+}
+
+.hyperlink{
+    -fx-background-color: '#98FF98';
+    -fx-border-color: 'BLACK';
+    -fx-border-width: 1px;
+    -fx-font-size: 20px;
+    -fx-font-family: 'Raleway', sans-serif;
+    -fx-text-fill: 'blue';
+    -fx-alignment: "CENTER";
+}
+
+#880box, #blgtitlelabel{
+    -fx-font-size: 12px;
+    -fx-font-family: 'System';
+    -fx-text-fill: 'black';
+}
+
+#blgLabel{
+    -fx-font-family: 'Raleway', sans-serif;
+    -fx-font-family: 'Arial Black';
+    -fx-font-size: 12px;
+    -fx-text-fill: 'white';
+    -fx-alignment: center;
+    -fx-text-alignment: "CENTER";
+}
+
+#headerlabel
+{
+    -fx-font-size: 40px;
+    -fx-alignment: "CENTER";
+}

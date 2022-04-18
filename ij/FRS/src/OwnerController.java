@@ -43,6 +43,8 @@ public class OwnerController implements Initializable
     @FXML CheckBox liftbox, generatorbox;
     @FXML ImageView blgicon;
     @FXML Hyperlink locationbutton = new Hyperlink();
+    @FXML MenuItem editbutton = new MenuItem("Edit Contact Info"), passbutton = new MenuItem("Change Password"), deletebutton = new MenuItem("Delete Account");
+    @FXML MenuButton settingsmenu;
 
     void init(Owner p)
     {
@@ -325,5 +327,12 @@ public class OwnerController implements Initializable
                                        }
                                    }
         );
+
+        editbutton = new MenuItem("Edit Contact Info");
+        passbutton = new MenuItem("Change Password");
+        deletebutton = new MenuItem("Delete Account");
+        settingsmenu = new MenuButton("Settings", null, editbutton, passbutton, deletebutton);
+
+        //editbutton.setOnAction();
     }
 }

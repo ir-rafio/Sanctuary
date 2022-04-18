@@ -368,6 +368,19 @@ public class Student extends User
 			case 42:
 				dept = "Software Engineering";
 				break;
+			case 21:
+				dept = "EEE";
+			case 11:
+				dept = "Mechanical";
+			case 12:
+				dept = "IPE";
+			case 51:
+				dept = "Civil Engineering";
+			case 61:
+				dept = "BTM";
+			case 31:
+				dept = "TVE";
+
 		}
 
 		return dept;

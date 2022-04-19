@@ -5,17 +5,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.web.WebView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable
+public class MainController extends QRcodeExtractor implements Initializable
 {
     private Stage stage;
     private Scene scene;
@@ -24,7 +24,7 @@ public class MainController implements Initializable
     @FXML TextField userbox, namebox, nidbox, phonebox, emailbox;
     @FXML PasswordField passbox, _passbox;
     @FXML ComboBox<String> blgbox = new ComboBox<>(), genderbox = new ComboBox<>();
-
+    @FXML public Button clickme;
 
     @FXML void studenthome(ActionEvent event) throws Exception
     {
@@ -234,6 +234,19 @@ public class MainController implements Initializable
     {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    void clickMeAction(ActionEvent ev) {
+        FileChooser fileChooser = new FileChooser();
+        //fileChooser.setTitle("Select File");
+        fileChooser.setInitialDirectory(new File("c:\\"));
+                File file = fileChooser.showOpenDialog(stage);
+        try {
+            userbox.setText(decodeQRCode(file));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

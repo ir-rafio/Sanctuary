@@ -1,4 +1,5 @@
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
@@ -24,11 +27,10 @@ public class StudentController implements Initializable
     Stack<String> stack = new Stack<>();
 
     @FXML private Label nameLabel, batchLabel, deptLabel, sectionLabel, blgLabel;
-    @FXML private TextField namebox, nidbox, phonebox, emailbox;
-    @FXML private PasswordField passbox, _passbox, oldpassbox;
     @FXML private Button flatbutton = new Button();
     @FXML private ComboBox<String> blgbox = new ComboBox<>(), genderbox = new ComboBox<>();
     @FXML private ImageView blgicon;
+    @FXML MenuItem editbutton = new MenuItem(), passbutton = new MenuItem(), deletebutton = new MenuItem(), couponbutton = new MenuItem();
 
     void init(Student p) throws Exception
     {
@@ -65,26 +67,6 @@ public class StudentController implements Initializable
         if(student.getFlat() == null) flatbutton.setVisible(false);
     }
 
-    @FXML void back(ActionEvent event) throws Exception
-    {
-        if(stack.isEmpty())
-        {
-            view(event);
-            return;
-        }
-
-        String page = stack.pop();
-        switch(page)
-        {
-            case "view":
-                view(event);
-                break;
-            case "set":
-                settingspage(event);
-                break;
-        }
-    }
-
     @FXML void view(ActionEvent event) throws Exception
     {
         stack.push("view");
@@ -99,44 +81,25 @@ public class StudentController implements Initializable
         stage.show();
     }
 
-    @FXML void editpage(ActionEvent event) throws Exception
-    {
-        root = FXMLLoader.load(getClass().getResource("fxml/Student/Edit.fxml"));
-        scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        /*namebox.setText(student.getName());
-        nidbox.setText(String.valueOf(student.getNID()));
-        phonebox.setText(String.valueOf(student.getPhone()));
-        emailbox.setText(student.getMail());
-
-        System.out.println(nameLabel.getText());
-        System.out.println("Name: " + namebox.getText());
-        System.out.println("NID Number: " + student.getNID());
-        System.out.println("Phone Number: " + "+880" + student.getPhone());
-        System.out.println("E-mail Address: " + student.getMail());*/
-
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML void settingspage(ActionEvent event) throws Exception
-    {
-        stack.push("set");
-        root = FXMLLoader.load(getClass().getResource("fxml/Student/Settings.fxml"));
-        scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        stage.setScene(scene);
-        stage.show();
-    }
-
     @FXML void discoverpage(ActionEvent event) throws Exception
     {
-        root = FXMLLoader.load(getClass().getResource("fxml/Student/Discover.fxml"));
+        /*root = FXMLLoader.load(getClass().getResource("fxml/Student/Discover.fxml"));
         scene = new Scene(root);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+        stage.setScene(scene);
+        stage.show();*/
+
+        int id = 1000000;
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Flat/Display.fxml"));
+        root = loader.load();
+
+        FlatDisplayController controller = loader.getController();
+        controller.init(Flat.open(id));
+
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
@@ -144,87 +107,6 @@ public class StudentController implements Initializable
     public void myflatpage(ActionEvent event) throws Exception
     {
         
-    }
-
-    public void passpage(ActionEvent event) throws Exception
-    {
-        root = FXMLLoader.load(getClass().getResource("fxml/Student/Password.fxml"));
-        scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void deletepage(ActionEvent event) throws Exception
-    {
-        root = FXMLLoader.load(getClass().getResource("fxml/Student/Delete.fxml"));
-        scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML void edit(ActionEvent event) throws Exception
-    {
-        System.out.println(namebox.getText());
-        System.out.println(nidbox.getText());
-        System.out.println(phonebox.getText());
-        System.out.println(emailbox.getText());
-        System.out.println(blgbox.getValue());
-
-        if(student == null) System.out.println("NULL!");
-        else
-        {
-            String pass = passbox.getText();
-            if(!student.matchPassword(pass)) return;
-
-            String _name = student.getName(), _email = student.getMail(), _bloodgroup = student.getBloodGroup();
-            long _nid = student.getNID(), _phone = student.getPhone();
-
-            /*if(!student.updateName(namebox.getText()) || !student.updateNID(Long.parseLong(nidbox.getText())) || !student.updateEmail(emailbox.getText()) || !student.updatePhone(Long.parseLong(phonebox.getText())) || !student.updateBloodGroup(blgbox.getValue()))
-            {
-                student.updateName(_name);
-                student.updateNID(_nid);
-                student.updateEmail(_email);
-                student.updatePhone(_phone);
-                student.updateBloodGroup(_bloodgroup);
-            }*/
-        }
-
-        back(event);
-    }
-
-    public void resetpass(ActionEvent event) throws Exception
-    {
-        if(student == null) System.out.println("NULL!");
-        else
-        {
-            String pass = oldpassbox.getText(), _pass;
-            if(!student.matchPassword(pass)) return;
-
-            pass = passbox.getText();
-            _pass = _passbox.getText();
-
-            student.changePassword(pass, _pass);
-        }
-
-        back(event);
-    }
-
-    public void delete(ActionEvent event) throws Exception
-    {
-        if(student == null) System.out.println("NULL!");
-        else
-        {
-            String pass = passbox.getText();
-            if(!student.matchPassword(pass)) return;
-
-            student.delete();
-        }
-
-        logout(event);
     }
 
     @FXML void logout(ActionEvent event) throws Exception
@@ -244,5 +126,117 @@ public class StudentController implements Initializable
         genderbox.getItems().addAll(User.genderlist);
         blgbox.getItems().addAll(User.bloodglist);
         flatbutton.setVisible(false);
+
+        editbutton.setOnAction(new EventHandler<ActionEvent>()
+                               {
+                                   @Override public void handle(ActionEvent event)
+                                   {
+                                       try
+                                       {
+                                           stage = (Stage) editbutton.getParentPopup().getOwnerWindow();
+                                           FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Student/Edit.fxml"));
+                                           root = loader.load();
+
+                                           StudentFormController controller = loader.getController();
+                                           controller.init(student);
+
+                                           scene = new Scene(root);
+                                           stage.setScene(scene);
+                                           stage.show();
+                                       }
+                                       catch (Exception e)
+                                       {
+                                           e.printStackTrace();
+                                           Alert alert = new Alert(Alert.AlertType.ERROR);
+                                           alert.setContentText(e.getMessage());
+                                           alert.show();
+                                       }
+                                   }
+                               }
+        );
+
+        passbutton.setOnAction(new EventHandler<ActionEvent>()
+                               {
+                                   @Override public void handle(ActionEvent event)
+                                   {
+                                       try
+                                       {
+                                           stage = (Stage) passbutton.getParentPopup().getOwnerWindow();
+                                           FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Student/Password.fxml"));
+                                           root = loader.load();
+
+                                           StudentFormController controller = loader.getController();
+                                           controller.init(student);
+
+                                           scene = new Scene(root);
+                                           stage.setScene(scene);
+                                           stage.show();
+                                       }
+                                       catch (Exception e)
+                                       {
+                                           e.printStackTrace();
+                                           Alert alert = new Alert(Alert.AlertType.ERROR);
+                                           alert.setContentText(e.getMessage());
+                                           alert.show();
+                                       }
+                                   }
+                               }
+        );
+
+        deletebutton.setOnAction(new EventHandler<ActionEvent>()
+                                 {
+                                     @Override public void handle(ActionEvent event)
+                                     {
+                                         try
+                                         {
+                                             stage = (Stage) deletebutton.getParentPopup().getOwnerWindow();
+                                             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Student/Delete.fxml"));
+                                             root = loader.load();
+
+                                             StudentFormController controller = loader.getController();
+                                             controller.init(student);
+
+                                             scene = new Scene(root);
+                                             stage.setScene(scene);
+                                             stage.show();
+                                         }
+                                         catch (Exception e)
+                                         {
+                                             e.printStackTrace();
+                                             Alert alert = new Alert(Alert.AlertType.ERROR);
+                                             alert.setContentText(e.getMessage());
+                                             alert.show();
+                                         }
+                                     }
+                                 }
+        );
+
+        couponbutton.setOnAction(new EventHandler<ActionEvent>()
+                                 {
+                                     @Override public void handle(ActionEvent event)
+                                     {
+                                         try
+                                         {
+                                             String reqtime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS"));
+                                             Database database = new Database("sanctuary", "root", "");
+                                             String[] columns = {"RequestTime", "ID"};
+                                             Object[] params = {reqtime, student.id};
+                                             database.insert("coupon", columns, params);
+
+                                             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                                             alert.setContentText("Your coupon request is stored in our database and will be sent to IUT Cafeteria.");
+                                             alert.show();
+                                         }
+                                         catch (Exception e)
+                                         {
+                                             e.printStackTrace();
+
+                                         }
+                                     }
+                                 }
+        );
+
+
+
     }
 }

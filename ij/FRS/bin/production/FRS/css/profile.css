@@ -4,14 +4,14 @@
 }
 
 .root{
-    -fx-background-color: '#28252E';
+    -fx-background-color: '#ffffff';
 }
 
 #homeblock{
     -fx-background-color: '#FFAA33';
     -fx-border-color: 'BLACK';
     -fx-border-width: 1px;
-    -fx-fill: '#FFAA33';
+    -fx-fill: '#FAFAD2';
     -fx-stroke: "BLACK";
     -fx-strokeType: "INSIDE";
 }
@@ -28,9 +28,7 @@
     -fx-layoutX: 40;
     -fx-layoutY: 40;
     -fx-background-color: '#EC1C24';
-    -fx-pref-width: 85;
-    -fx-pref-height: 45;
-    -fx-text-alignment: "RIGHT";
+    -fx-text-fill: 'white';
 }
 
 #rentbutton{
@@ -42,13 +40,15 @@
     -fx-background-color: '#6699CC';
     -fx-border-color: 'BLACK';
     -fx-border-width: 1px;
-    -fx-fill: '#6699CC';
+    -fx-fill: '#FAFAD2';
     -fx-stroke: "BLACK";
     -fx-strokeType: "INSIDE";
 }
 
 #formsubmit{
     -fx-font-size: 25px;
+    -fx-background-color : '#2c3e50';
+    -fx-text-fill : 'white';
 }
 
 .label{
@@ -87,3 +87,4 @@
     -fx-font-size: 40px;
     -fx-alignment: "CENTER";
 }
+

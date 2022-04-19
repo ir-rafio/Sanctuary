@@ -2,17 +2,26 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContentDisplay?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../../css/home.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #2c3e50;" stylesheets="@../../css/home.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
     <children>
-        <Button fx:id="back" layoutX="57.0" layoutY="42.0" mnemonicParsing="false" onAction="#studenthome" text="Back" />
+        <Button fx:id="back" layoutX="14.0" layoutY="44.0" mnemonicParsing="false" onAction="#studenthome">
+            <graphic>
+                <ImageView>
+                    <Image url="@/img/back.png" />
+                </ImageView>
+            </graphic>
+        </Button>
       <GridPane layoutX="1020.0" layoutY="360.0" prefWidth="200.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -34,5 +43,15 @@
         </VBox>
           <Button fx:id="active" layoutX="564.0" layoutY="205.0" mnemonicParsing="false" text="Student" />
           <Button fx:id="inactive" layoutX="677.0" layoutY="205.0" mnemonicParsing="false" onAction="#ownerloginpage" text="Owner" />
+        <Button fx:id="clickme" layoutX="170.0" layoutY="205.0" mnemonicParsing="false" onAction="#clickMeAction" style="-fx-text-fill: black;" text="Use QRCode">
+            <contentDisplay>
+                <ContentDisplay fx:value="TOP" />
+            </contentDisplay>
+            <graphic>
+                <ImageView>
+                    <Image url="@/img/qrcode3.png" />
+                </ImageView>
+            </graphic>
+        </Button>
     </children>
 </AnchorPane>

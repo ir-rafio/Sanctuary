@@ -22,7 +22,6 @@ public class OwnerController implements Initializable
     private Parent root;
 
     @FXML Label nameLabel;
-    @FXML PasswordField passbox, _passbox, oldpassbox;
     @FXML MenuButton flatlist;
     @FXML MenuItem editbutton = new MenuItem(), passbutton = new MenuItem(), deletebutton = new MenuItem(), addflatbutton = new MenuItem();
 

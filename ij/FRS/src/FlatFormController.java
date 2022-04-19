@@ -24,9 +24,11 @@ public class FlatFormController implements Initializable
     private Scene scene;
     private Parent root;
 
-    @FXML TextField namebox, areabox;
-    @FXML ComboBox<String> floorbox = new ComboBox<>(), flatgenderbox = new ComboBox<>();
+    @FXML TextField namebox = new TextField(), areabox, xbox = new TextField(), ybox = new TextField();
+    @FXML ComboBox<Integer> levelbox = new ComboBox<>();
+    @FXML ComboBox<String> flatgenderbox = new ComboBox<>(), floorbox = new ComboBox<>();
     @FXML CheckBox lightbox, almirahbox, sinkbox, cupboardbox, gasbox, ventilatorbox, showerbox, tseatbox, tpanbox, spraybox, geaserbox, bathtubbox;
+    @FXML CheckBox liftbox = new CheckBox(), generatorbox = new CheckBox();
     @FXML ComboBox<Integer> stovebox = new ComboBox<>();
     @FXML Hyperlink locationbutton = new Hyperlink();
 
@@ -34,15 +36,13 @@ public class FlatFormController implements Initializable
     {
         flat = f;
 
-        /*nameLabel.setText(flat.getName());
-        levelLabel.setText("Level " + flat.getLevel());
-        roomcountLabel.setText("Room Count" + flat.rooms.size());
+        namebox.setText(flat.getName());
+        levelbox.setValue(flat.getLevel());
+        flatgenderbox.setValue(flat.getGender());
+        xbox.setText(String.valueOf(flat.getX()));
+        ybox.setText(String.valueOf(flat.getY()));
         liftbox.setSelected(flat.getLift());
         generatorbox.setSelected(flat.getGenerator());
-
-        int rent = flat.getRent();
-        if(rent < 0) rentviewbutton.setVisible(false);
-        else rentviewbutton.setText("Rent: " + rent);*/
     }
 
     @FXML void back(ActionEvent event) throws Exception

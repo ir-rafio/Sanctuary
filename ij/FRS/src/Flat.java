@@ -711,6 +711,58 @@ public class Flat
 		}
 	}
 
+	double getX() throws Exception
+	{
+		try
+		{
+			Database database = new Database("sanctuary", "root", "");
+			String[] columns = {"X"};
+			Object[] params = {id};
+			ResultSet rs = database.select("flat", columns, "FlatID = ?", params);
+
+			if(!rs.isBeforeFirst()) return -1;
+
+			rs.next();
+			double x = rs.getDouble("X");
+
+			rs.next();
+			if(!rs.isAfterLast()) throw new Exception("DATABASE ERROR!");
+
+			return x;
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
+	}
+
+	double getY() throws Exception
+	{
+		try
+		{
+			Database database = new Database("sanctuary", "root", "");
+			String[] columns = {"Y"};
+			Object[] params = {id};
+			ResultSet rs = database.select("flat", columns, "FlatID = ?", params);
+
+			if(!rs.isBeforeFirst()) return -1;
+
+			rs.next();
+			double y = rs.getDouble("Y");
+
+			rs.next();
+			if(!rs.isAfterLast()) throw new Exception("DATABASE ERROR!");
+
+			return y;
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
+	}
+
 	String getLocation() throws Exception
 	{
 		try

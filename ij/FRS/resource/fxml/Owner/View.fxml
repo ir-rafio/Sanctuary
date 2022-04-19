@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../../css/profile.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OwnerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #2c3e50;" stylesheets="@../../css/profile.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OwnerController">
     <children>
-        <Rectangle fx:id="homeblock" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="350.0" layoutX="361.0" layoutY="230.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
-        <HBox layoutX="1000.0" layoutY="40.0" spacing="20.0">
+        <Rectangle fx:id="homeblock" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="350.0" layoutX="150.0" layoutY="107.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
+        <HBox layoutX="497.0" layoutY="31.0" prefWidth="322.0" spacing="20.0">
             <children>
-                <MenuButton fx:id="flatlist" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="My Flats">
+                <MenuButton fx:id="flatlist" mnemonicParsing="false" prefHeight="45.0" prefWidth="150.0" text="My Flats">
                     <items>
                         <MenuItem fx:id="addflatbutton" mnemonicParsing="false" text="Add New" />
                     </items>
                 </MenuButton>
-                <Button mnemonicParsing="false" onAction="#logout" prefHeight="45.0" prefWidth="100.0" text="Log Out" />
+                <Button mnemonicParsing="false" onAction="#logout" prefHeight="45.0" text="Log Out" />
             </children>
         </HBox>
-        <Label fx:id="nameLabel" layoutX="371.0" layoutY="245.0" prefHeight="45.0" prefWidth="480.0" text="Name: " />
-      <MenuButton layoutX="720.0" layoutY="520.0" mnemonicParsing="false" text="Settings">
+        <Label fx:id="nameLabel" layoutX="169.0" layoutY="140.0" prefHeight="46.0" prefWidth="469.0" text="Name: " />
+      <MenuButton layoutX="501.0" layoutY="393.0" mnemonicParsing="false" text="Settings">
         <items>
           <MenuItem fx:id="editbutton" mnemonicParsing="false" text="Edit Contact Info" />
           <MenuItem fx:id="passbutton" mnemonicParsing="false" text="Change Password" />

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../../css/profile.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../../css/profile.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentFormController">
     <children>
-        <Rectangle fx:id="homeblock" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="350.0" layoutX="61.0" layoutY="230.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
+      <Rectangle fx:id="formsquare" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="266.0" layoutY="207.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+      <Button fx:id="formsubmit" layoutX="276.0" layoutY="288.0" mnemonicParsing="false" onAction="#findflat" prefHeight="56.0" prefWidth="220.0" text="Find Flat" textAlignment="CENTER" />
+      <TextField fx:id="flatidbox" layoutX="306.0" layoutY="238.0" prefWidth="160.0" promptText="Enter Flat ID" text="1000000" />
     </children>
 </AnchorPane>

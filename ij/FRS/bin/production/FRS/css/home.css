@@ -4,7 +4,7 @@
 }
 
 .root{
-    -fx-background-color: '#28252E';
+    -fx-background-color: '#FAFAD2';
     //-fx-background-image: url('../img/hom.png');
     -fx-background-repeat: no-repeat;
     -fx-background-size: contain;
@@ -32,7 +32,7 @@
 
 .button{
     -fx-background-color: '#FAFAD2';
-    -fx-text-fill: 'BLACK';
+    -fx-text-fill: 'white';
     -fx-text-alignment: "CENTER";
     -fx-font-family: 'Raleway', sans-serif;
     -fx-font-size: 20px;
@@ -48,20 +48,19 @@
 }
 
 #inactive{
-    -fx-background-color: '#AAAAAA';
+    -fx-background-color: '#a8d5e5';
     -fx-text-fill: 'white';
 }
 
 #back{
     -fx-layoutX: 40;
     -fx-layoutY: 40;
-    -fx-background-color: '#EC1C24';
-    -fx-pref-width: 85;
-    -fx-pref-height: 45;
+    -fx-background-color: '#2c3e50';
+    -fx-text-fill: 'white';
 }
 
 #formsquare{
-    -fx-background-color: '#6699CC';
+    -fx-background-color: '#FAFAD2';
     -fx-border-color: 'BLACK';
     -fx-border-width: 1px;
     -fx-fill: '#6699CC';
@@ -70,5 +69,6 @@
 }
 
 #formsubmit{
+    -fx-background-color: '#2c3e50';
     -fx-font-size: 25px;
 }

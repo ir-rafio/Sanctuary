@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #2c3e50;" stylesheets="@../../css/home.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+    <children>
+        <Button fx:id="back" layoutX="40.0" layoutY="40.0" mnemonicParsing="false" onAction="#ownerhome">
+            <graphic>
+                <ImageView>
+                    <Image url="@/img/back.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <VBox fx:id="formsquare" layoutX="287.0" layoutY="219.0" prefHeight="217.0" prefWidth="218.0" spacing="25.0" stylesheets="@../../css/textbox.css">
+            <children>
+                <TextField fx:id="userbox" prefHeight="25.0" prefWidth="160.0" promptText="Username" text="ork" />
+                <PasswordField fx:id="passbox" prefHeight="25.0" prefWidth="160.0" promptText="Password" text="000000" />
+                <Button fx:id="formsubmit" mnemonicParsing="false" onAction="#ownerlogin" prefHeight="60.0" prefWidth="178.0" style="-fx-text-fill: white;" text="Log In" textAlignment="CENTER" />
+            </children>
+            <padding>
+                <Insets bottom="25.0" left="20.0" right="20.0" top="25.0" />
+            </padding>
+        </VBox>
+          <Button fx:id="active" layoutX="356.0" layoutY="145.0" mnemonicParsing="false" text="Owner" />
+    </children>
+</AnchorPane>

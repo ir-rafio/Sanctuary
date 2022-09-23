@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #2c3e50;" stylesheets="@../../css/profile.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlatFormController">
+    <children>
+        <Button fx:id="back" layoutX="40.0" layoutY="40.0" mnemonicParsing="false" onAction="#back" text="Cancel" />
+        <VBox layoutX="190.0" layoutY="120.0" stylesheets="@../../css/textbox.css" />
+      <VBox fx:id="formsquare" layoutX="340.0" layoutY="206.0" prefWidth="200.0" spacing="25.0">
+         <children>
+            <TextField fx:id="rentbox" prefHeight="25.0" prefWidth="160.0" promptText="Rent" />
+            <PasswordField fx:id="passbox" prefHeight="25.0" prefWidth="160.0" promptText="Password" />
+            <Button fx:id="formsubmit" mnemonicParsing="false" onAction="#setrent" prefHeight="55.0" prefWidth="160.0" text="Confirm" textAlignment="CENTER" />
+         </children>
+         <padding>
+            <Insets bottom="25.0" left="20.0" right="20.0" top="25.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="104.0" layoutY="234.0" spacing="20.0">
+         <children>
+              <Label fx:id="roomcountLabel" text="Room Count: " />
+            <Label text="Expected Rent: " />
+         </children>
+      </VBox>
+          <Label fx:id="headerlabel" alignment="CENTER" layoutX="162.0" layoutY="106.0" prefHeight="60.0" prefWidth="500.0" text="Flat Name" />
+    </children>
+</AnchorPane>

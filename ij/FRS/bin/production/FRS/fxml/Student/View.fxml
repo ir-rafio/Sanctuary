@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../../css/profile.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #2c3e50;" stylesheets="@../../css/profile.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentController">
     <children>
-        <Rectangle fx:id="homeblock" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="321.0" layoutX="281.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="488.0" />
-        <Label fx:id="nameLabel" layoutX="296.0" layoutY="151.0" prefHeight="45.0" prefWidth="480.0" text="Name: " />
-        <Label fx:id="batchLabel" layoutX="296.0" layoutY="206.0" prefHeight="45.0" prefWidth="200.0" text="Batch: " />
-        <Label fx:id="deptLabel" layoutX="296.0" layoutY="265.0" prefHeight="45.0" prefWidth="480.0" text="Department: " />
-        <Label fx:id="sectionLabel" layoutX="296.0" layoutY="325.0" prefHeight="45.0" prefWidth="480.0" text="Section: " />
-        <StackPane layoutX="452.0" layoutY="199.0">
+        <Rectangle fx:id="homeblock" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="321.0" layoutX="152.0" layoutY="142.0" stroke="BLACK" strokeType="INSIDE" width="488.0" />
+        <Label fx:id="nameLabel" layoutX="171.0" layoutY="162.0" prefHeight="45.0" prefWidth="480.0" text="Name: " />
+        <Label fx:id="batchLabel" layoutX="171.0" layoutY="217.0" prefHeight="45.0" prefWidth="200.0" text="Batch: " />
+        <Label fx:id="deptLabel" layoutX="171.0" layoutY="276.0" prefHeight="45.0" prefWidth="480.0" text="Department: " />
+        <Label fx:id="sectionLabel" layoutX="171.0" layoutY="336.0" prefHeight="45.0" prefWidth="480.0" text="Section: " />
+        <StackPane layoutX="553.0" layoutY="165.0">
             <children>
                 <ImageView fx:id="blgicon" fitHeight="60.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -35,7 +35,7 @@
                 <Button mnemonicParsing="false" onAction="#logout" prefHeight="46.0" prefWidth="103.0" text="Log Out" />
             </children>
         </HBox>
-      <MenuButton layoutX="624.0" layoutY="406.0" mnemonicParsing="false" text="Settings">
+      <MenuButton layoutX="495.0" layoutY="404.0" mnemonicParsing="false" text="Settings">
          <items>
             <MenuItem fx:id="editbutton" mnemonicParsing="false" text="Edit Profile" />
             <MenuItem fx:id="passbutton" mnemonicParsing="false" text="Change Password" />

@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../../css/profile.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlatFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #2c3e50;" stylesheets="@../../css/profile.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlatFormController">
     <children>
         <Button fx:id="back" layoutX="40.0" layoutY="40.0" mnemonicParsing="false" onAction="#back" text="Done" />
-        <VBox layoutX="190.0" layoutY="120.0">
+        <VBox layoutX="96.0" layoutY="106.0">
             <children>
-                <Label fx:id="headerlabel" alignment="CENTER" prefHeight="60.0" prefWidth="900.0" text="Add Room" />
-                <GridPane prefHeight="450.0" prefWidth="900.0">
+                <Label fx:id="headerlabel" alignment="CENTER" prefHeight="60.0" prefWidth="650.0" style="-fx-text-fill: white;" text="Add Room" />
+                <GridPane prefHeight="300.0" prefWidth="600.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -38,6 +38,6 @@
                 </GridPane>
             </children>
         </VBox>
-        <Label fx:id="roomcountLabel" layoutX="1020.0" layoutY="55.0" text="Room Count: " />
+        <Label fx:id="roomcountLabel" layoutX="596.0" layoutY="46.0" style="-fx-text-fill: white;" text="Room Count: " />
     </children>
 </AnchorPane>

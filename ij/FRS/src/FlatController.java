@@ -29,7 +29,7 @@ public class FlatController implements Initializable
 
     @FXML Label nameLabel = new Label(), levelLabel = new Label(), roomcountLabel = new Label();
     @FXML CheckBox liftbox = new CheckBox(), generatorbox = new CheckBox();
-    @FXML Button rentviewbutton = new Button();
+//    @FXML Button rentviewbutton = new Button();
     @FXML MenuButton roomlist;
     @FXML MenuItem editbutton = new MenuItem(), rentbutton = new MenuItem(), deletebutton = new MenuItem(), addroombutton = new MenuItem();
     @FXML Hyperlink locationbutton = new Hyperlink();
@@ -44,9 +44,9 @@ public class FlatController implements Initializable
         liftbox.setSelected(flat.getLift());
         generatorbox.setSelected(flat.getGenerator());
 
-        int rent = flat.getRent();
-        if(rent < 0) rentviewbutton.setVisible(false);
-        else rentviewbutton.setText("Rent: " + rent);
+//        int rent = flat.getRent();
+//        if(rent < 0) rentviewbutton.setVisible(false);
+//        else rentviewbutton.setText("Rent: " + rent);
 
         for(Room r: flat.rooms) {
             MenuItem item = new MenuItem(r.name);
@@ -118,8 +118,6 @@ public class FlatController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-
-
         editbutton.setOnAction(new EventHandler<ActionEvent>()
                                {
                                    @Override public void handle(ActionEvent event)

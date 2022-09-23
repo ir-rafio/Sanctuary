@@ -5,32 +5,18 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../../css/profile.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlatDisplayController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #2c3e50;" stylesheets="@../../css/profile.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlatDisplayController">
     <children>
-        <HBox layoutX="300.0" layoutY="30.0" spacing="20.0">
-            <children>
-                <MenuButton fx:id="rentviewbutton" mnemonicParsing="false" prefHeight="45.0" prefWidth="200.0" text="Rent">
-               <items>
-                  <MenuItem fx:id="reservationbutton" mnemonicParsing="false" text="Request Reservation" />
-               </items></MenuButton>
-                <MenuButton fx:id="roomlist" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="Rooms">
-                    <items>
-                        <MenuItem fx:id="addroombutton" mnemonicParsing="false" text="Add New" />
-                    </items>
-                </MenuButton>
-                <Button mnemonicParsing="false" onAction="#back" prefHeight="45.0" prefWidth="100.0" text="Home" />
-            </children>
-        </HBox>
-        <GridPane fx:id="homeblock" layoutX="38.0" layoutY="103.0" prefHeight="350.0" prefWidth="500.0">
+        <HBox layoutX="300.0" layoutY="30.0" spacing="20.0" />
+        <GridPane fx:id="homeblock" layoutX="120.0" layoutY="123.0" prefHeight="306.0" prefWidth="436.0">
             <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
@@ -38,20 +24,21 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <Label fx:id="nameLabel" text="Name" GridPane.columnSpan="2" />
-                <Label fx:id="levelLabel" text="Level" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <CheckBox fx:id="liftbox" disable="true" mnemonicParsing="false" text="Lift" GridPane.rowIndex="2" />
-                <CheckBox fx:id="generatorbox" disable="true" mnemonicParsing="false" text="Generator" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Hyperlink fx:id="locationbutton" text="Location" GridPane.rowIndex="1" />
+                <Label fx:id="levelLabel" text="Level" GridPane.rowIndex="2" />
+                <CheckBox fx:id="liftbox" disable="true" mnemonicParsing="false" text="Lift" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <CheckBox fx:id="generatorbox" disable="true" mnemonicParsing="false" style="-fx-text-fill: black;" text="Generator" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Hyperlink fx:id="locationbutton" prefHeight="70.0" prefWidth="138.0" text="Location" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="rentLabel" text="Rent: 10000" GridPane.columnIndex="2" />
             </children>
             <padding>
                 <Insets left="10.0" right="10.0" top="10.0" />
             </padding>
         </GridPane>
-      <Button layoutX="687.0" layoutY="416.0" mnemonicParsing="false" text="Next" />
+          <Button layoutX="38.0" layoutY="30.0" mnemonicParsing="false" onAction="#back" prefHeight="45.0" prefWidth="100.0" text="Home" />
+      <Button fx:id="reservationbutton" layoutX="589.0" layoutY="209.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="150.0" text="Request Reservation" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="nextbutton" layoutX="650.0" layoutY="30.0" mnemonicParsing="false" onAction="#next" prefHeight="46.0" prefWidth="90.0" text="Next" />
     </children>
 </AnchorPane>

@@ -14,6 +14,7 @@ public class Owner extends User
 	Owner(String user, String _name, String pass, String _pass, long _nid, long _phone, String _email) throws Exception
 	{
 		Global.checkIdentifier(user, "Username");
+		username = user;
 		setPassword(pass, _pass);
 		name = _name;
 		nid = _nid;
@@ -467,7 +468,7 @@ public class Owner extends User
 			Object[] params = {username};
 			ResultSet rs = database.select("flat", columns, "Owner = ?", params);
 
-			if(!rs.isBeforeFirst()) throw new Exception("FLAT NOT FOUND IN THE DATABASE!");
+			if(!rs.isBeforeFirst()) return null;
 
 			while(rs.next())
 			{

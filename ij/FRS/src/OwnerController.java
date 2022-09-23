@@ -21,7 +21,7 @@ public class OwnerController implements Initializable
     private Scene scene;
     private Parent root;
 
-    @FXML Label nameLabel;
+    @FXML Label nameLabel, phoneLabel, emailLabel;
     @FXML MenuButton flatlist;
     @FXML MenuItem editbutton = new MenuItem(), passbutton = new MenuItem(), deletebutton = new MenuItem(), addflatbutton = new MenuItem();
 
@@ -29,40 +29,41 @@ public class OwnerController implements Initializable
     {
         owner = p;
 
-        nameLabel.setText(nameLabel.getText()+p.getName());
+        nameLabel.setText("Name: "+owner.getName());
+        emailLabel.setText("Email: "+owner.getMail());
+        phoneLabel.setText("Phone: "+"+880"+owner.getPhone());
 
-        for(Flat flat: owner.flats())
+        if(owner.flats() != null)
         {
-            MenuItem item = new MenuItem(flat.getName());
-            item.setOnAction(new EventHandler<ActionEvent>()
-                             {
-                                 @Override public void handle(ActionEvent event)
-                                 {
-                                     try
-                                     {
-                                         stage = (Stage) item.getParentPopup().getOwnerWindow();
-                                         Flat f = Flat.open(flat.id);
+            for (Flat flat : owner.flats())
+            {
+                MenuItem item = new MenuItem(flat.getName());
+                item.setOnAction(new EventHandler<ActionEvent>() {
+                                     @Override
+                                     public void handle(ActionEvent event) {
+                                         try {
+                                             stage = (Stage) item.getParentPopup().getOwnerWindow();
+                                             Flat f = Flat.open(flat.id);
 
-                                         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Flat/View.fxml"));
-                                         root = loader.load();
-                                         FlatController controller = loader.getController();
-                                         controller.init(f);
+                                             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Flat/View.fxml"));
+                                             root = loader.load();
+                                             FlatController controller = loader.getController();
+                                             controller.init(f);
 
-                                         scene = new Scene(root);
-                                         stage.setScene(scene);
-                                         stage.show();
-                                     }
-                                     catch (Exception e)
-                                     {
-                                         e.printStackTrace();
-                                         Alert alert = new Alert(Alert.AlertType.ERROR);
-                                         alert.setContentText(e.getMessage());
-                                         alert.show();
+                                             scene = new Scene(root);
+                                             stage.setScene(scene);
+                                             stage.show();
+                                         } catch (Exception e) {
+                                             e.printStackTrace();
+                                             Alert alert = new Alert(Alert.AlertType.ERROR);
+                                             alert.setContentText(e.getMessage());
+                                             alert.show();
+                                         }
                                      }
                                  }
-                             }
-            );
-            flatlist.getItems().add(item);
+                );
+                flatlist.getItems().add(item);
+            }
         }
     }
 

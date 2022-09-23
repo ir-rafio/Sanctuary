@@ -239,7 +239,7 @@ public class MainController extends QRcodeExtractor implements Initializable
     @FXML
     void clickMeAction(ActionEvent ev) {
         FileChooser fileChooser = new FileChooser();
-        //fileChooser.setTitle("Select File");
+        fileChooser.setTitle("Select File");
         fileChooser.setInitialDirectory(new File("c:\\"));
                 File file = fileChooser.showOpenDialog(stage);
         try {

@@ -18,7 +18,7 @@ public class Flat
 	private String name, gender;
 	private int level;
 
-	private Location location = new Location(23.94538493888004, 90.38274718424901);
+	private Location location;
 	private boolean lift = false, generator = false;
 
 	ArrayList<Room> rooms = new ArrayList<>();
@@ -532,7 +532,7 @@ public class Flat
 		}
 	}*/
 
-	private void delete() throws Exception
+	void delete() throws Exception
 	{
 		try
 		{

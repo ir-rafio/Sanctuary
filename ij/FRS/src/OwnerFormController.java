@@ -26,7 +26,7 @@ public class OwnerFormController implements Initializable
 
     @FXML TextField namebox, phonebox = new TextField(), emailbox = new TextField(), passbox, _passbox, oldpassbox, xbox, ybox;
     @FXML Hyperlink locationbutton = new Hyperlink();
-    @FXML ComboBox<String> blgbox = new ComboBox<>(), genderbox = new ComboBox<>(), flatgenderbox = new ComboBox<>();
+    @FXML ComboBox<String> blgbox = new ComboBox<>(), flatgenderbox = new ComboBox<>();
     @FXML ComboBox<Integer> levelbox = new ComboBox<>();
     @FXML CheckBox liftbox, generatorbox;
 
@@ -118,7 +118,7 @@ public class OwnerFormController implements Initializable
     {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        String name = namebox.getText(), gender = genderbox.getValue();
+        String name = namebox.getText(), gender = flatgenderbox.getValue();
         double x = Double.parseDouble(xbox.getText()), y = Double.parseDouble(ybox.getText());
         int level = levelbox.getValue();
         boolean lift = liftbox.isSelected(), generator = generatorbox.isSelected();
@@ -127,9 +127,10 @@ public class OwnerFormController implements Initializable
         try
         {
             owner = Owner.login("ork", "000000");
+            System.out.println(gender);
             f = new Flat(owner.username, name, gender, x, y, level, lift, generator);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Flat/AddRoom.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Flat/View.fxml"));
             root = loader.load();
             FlatController controller = loader.getController();
             controller.init(f);
@@ -140,6 +141,7 @@ public class OwnerFormController implements Initializable
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText(e.getMessage());
             alert.show();

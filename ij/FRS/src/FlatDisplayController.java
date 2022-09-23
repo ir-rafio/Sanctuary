@@ -27,9 +27,9 @@ public class FlatDisplayController implements Initializable
 
     @FXML Label nameLabel = new Label(), levelLabel = new Label(), roomcountLabel = new Label();
     @FXML CheckBox liftbox = new CheckBox(), generatorbox = new CheckBox();
-    @FXML MenuButton rentviewbutton = new MenuButton();
     @FXML MenuButton roomlist;
-    @FXML MenuItem editbutton = new MenuItem(), rentbutton = new MenuItem(), deletebutton = new MenuItem(), addroombutton = new MenuItem(), reservationbutton = new MenuItem();
+    @FXML Button reservationbutton = new Button();
+    @FXML MenuItem editbutton = new MenuItem(), deletebutton = new MenuItem(), addroombutton = new MenuItem();
     @FXML Hyperlink locationbutton = new Hyperlink();
 
     void init(Flat f) throws Exception
@@ -43,7 +43,6 @@ public class FlatDisplayController implements Initializable
         generatorbox.setSelected(flat.getGenerator());
 
         int rent = flat.getRent();
-        rentviewbutton.setText("Rent: " + "10000");
 
         for(Room r: flat.rooms) {
             MenuItem item = new MenuItem(r.name);
@@ -84,11 +83,11 @@ public class FlatDisplayController implements Initializable
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         try
         {
-            Owner p = Owner.login(Global.user, Global.pass);
+            Student p = Student.login(Global.id, Global.pass);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Owner/View.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Student/View.fxml"));
             root = loader.load();
-            OwnerController controller = loader.getController();
+            StudentController controller = loader.getController();
             controller.init(p);
         }
         catch(Exception e)
@@ -112,6 +111,11 @@ public class FlatDisplayController implements Initializable
         stage.show();
     }
 
+    @FXML void next(ActionEvent event) throws Exception
+    {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -125,34 +129,6 @@ public class FlatDisplayController implements Initializable
                                        {
                                            stage = (Stage) editbutton.getParentPopup().getOwnerWindow();
                                            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Flat/Edit.fxml"));
-                                           root = loader.load();
-
-                                           FlatFormController controller = loader.getController();
-                                           controller.init(flat);
-
-                                           scene = new Scene(root);
-                                           stage.setScene(scene);
-                                           stage.show();
-                                       }
-                                       catch (Exception e)
-                                       {
-                                           e.printStackTrace();
-                                           Alert alert = new Alert(Alert.AlertType.ERROR);
-                                           alert.setContentText(e.getMessage());
-                                           alert.show();
-                                       }
-                                   }
-                               }
-        );
-
-        rentbutton.setOnAction(new EventHandler<ActionEvent>()
-                               {
-                                   @Override public void handle(ActionEvent event)
-                                   {
-                                       try
-                                       {
-                                           stage = (Stage) rentbutton.getParentPopup().getOwnerWindow();
-                                           FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Flat/Rent.fxml"));
                                            root = loader.load();
 
                                            FlatFormController controller = loader.getController();

@@ -24,7 +24,7 @@ public class FlatFormController implements Initializable
     private Scene scene;
     private Parent root;
 
-    @FXML TextField namebox = new TextField(), areabox, xbox = new TextField(), ybox = new TextField();
+    @FXML TextField namebox = new TextField(), areabox, xbox = new TextField(), ybox = new TextField(), passbox = new PasswordField();
     @FXML ComboBox<Integer> levelbox = new ComboBox<>();
     @FXML ComboBox<String> flatgenderbox = new ComboBox<>(), floorbox = new ComboBox<>();
     @FXML CheckBox lightbox, almirahbox, sinkbox, cupboardbox, gasbox, ventilatorbox, showerbox, tseatbox, tpanbox, spraybox, geaserbox, bathtubbox;
@@ -71,7 +71,21 @@ public class FlatFormController implements Initializable
 
     @FXML void delete(ActionEvent event) throws Exception
     {
+        String pass = passbox.getText();
+        Owner p = Owner.login(Global.user, Global.pass);
+        if(!p.matchPassword(pass)) throw new Exception("WRONG PASSWORD!");
+        flat.delete();
 
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Owner/View.fxml"));
+        root = loader.load();
+
+        OwnerController controller = loader.getController();
+        controller.init(p);
+
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML void home(ActionEvent event) throws Exception

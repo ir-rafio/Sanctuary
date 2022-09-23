@@ -3,9 +3,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContentDisplay?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,12 +18,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<?import javafx.scene.control.ContentDisplay?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="800.0" stylesheets="@../../css/home.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="800.0" style="-fx-background-color: #2c3e50;" stylesheets="@../../css/home.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
     <children>
-        <Button fx:id="back" layoutX="40.0" layoutY="40.0" mnemonicParsing="false" onAction="#studenthome" >
+        <Button fx:id="back" layoutX="40.0" layoutY="40.0" mnemonicParsing="false" onAction="#studenthome">
             <graphic>
                 <ImageView>
                     <Image url="@/img/back.png" />
@@ -36,7 +36,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-        <VBox fx:id="formsquare" layoutX="537.0" layoutY="125.0" prefWidth="200.0" spacing="25.0">
+        <VBox fx:id="formsquare" layoutX="537.0" layoutY="125.0" prefWidth="200.0" spacing="25.0" stylesheets="@../../css/textbox.css">
             <children>
                 <TextField fx:id="namebox" prefHeight="25.0" prefWidth="160.0" promptText="Name" />
                 <HBox prefHeight="25.0" prefWidth="160.0">
@@ -73,15 +73,14 @@
             <Insets bottom="25.0" left="20.0" right="20.0" top="25.0" />
          </padding>
         </VBox>
-          <Button fx:id="active" layoutX="537.0" layoutY="50.0" mnemonicParsing="false" text="Student" />
-          <Button fx:id="inactive" layoutX="660.0" layoutY="50.0" mnemonicParsing="false" onAction="#ownerregpage" text="Owner" />
-        <Button fx:id="clickme" layoutX="193.0" layoutY="270.0" mnemonicParsing="false" onAction="#clickMeAction" text="Use QRCode" >
+          <Button fx:id="active" layoutX="586.0" layoutY="50.0" mnemonicParsing="false" text="Student" />
+        <Button fx:id="clickme" layoutX="193.0" layoutY="270.0" mnemonicParsing="false" onAction="#clickMeAction" style="-fx-text-fill: black;" text="Use QRCode">
             <contentDisplay>
-                <ContentDisplay fx:value="TOP"/>
+                <ContentDisplay fx:value="TOP" />
             </contentDisplay>
             <graphic>
                 <ImageView>
-                    <Image url="@/img/qrcode3.png"/>
+                    <Image url="@/img/qrcode3.png" />
                 </ImageView>
             </graphic>
         </Button>
